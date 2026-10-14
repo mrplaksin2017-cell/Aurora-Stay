@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Aurora Stay — поиск и онлайн-бронирование номеров." />
+    <title>Aurora Stay — онлайн-бронирование</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Aurora Stay — на главную">
+        <span class="brand-mark">✦</span>
+        <span>Aurora <em>Stay</em></span>
+      </a>
+      <nav class="main-nav" aria-label="Основная навигация">
+        <a class="active" href="#stays">Отели</a>
+        <a href="#destinations">Направления</a>
+        <a href="#how-it-works">Как это работает</a>
+        <a href="#benefits">Почему мы</a>
+        <a href="#faq">FAQ</a>
+        <a href="#support">Поддержка</a>
+      </nav>
+      <div class="header-actions">
+        <button class="ghost-button favorites-button" type="button" data-open-favorites aria-label="Открыть избранное">
+          Избранное <span class="count-badge" data-favorite-count>0</span>
+        </button>
+        <button class="ghost-button bookings-button" type="button" data-open-bookings>
+          Мои бронирования <span class="count-badge" data-booking-count>0</span>
+        </button>
+        <button class="profile-button" type="button" data-open-login aria-label="Открыть профиль">
+          <span class="profile-icon">◎</span><span class="profile-label">Войти</span>
+        </button>
+        <button class="menu-button" type="button" data-menu-toggle aria-label="Открыть меню" aria-expanded="false">☰</button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero shell reveal">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> Бронирование без лишних шагов</p>
+          <h1>Место, где<br /><i>начинается</i> поездка</h1>
+          <p class="hero-text">Подберите отель под свои планы, зафиксируйте цену и получите подтверждение сразу после оплаты.</p>
+          <div class="hero-note"><span class="note-icon">⌁</span><span>189 вариантов размещения в 63 городах мира</span></div>
+        </div>
+        <div class="hero-art" aria-label="Фотография уютного гостиничного номера" role="img">
+          <div class="art-glow"></div>
+          <div class="art-card art-card-top"><span>4.9</span> <b>★</b><small>рейтинг гостей</small></div>
+          <div class="art-card art-card-bottom"><span>24/7</span><small>поддержка в поездке</small></div>
+          <div class="art-sun"></div>
+          <div class="art-window"></div>
+          <div class="art-bed"><div class="pillow"></div><div class="blanket"></div></div>
+          <div class="art-plant"><i></i><i></i><i></i><b></b></div>
+        </div>
+      </section>
+
+      <section class="search-wrap shell reveal" aria-label="Поиск отеля">
+        <form class="search-panel" id="search-form">
+          <label class="field field-place">
+            <span class="field-icon">⌖</span><span class="field-label">Куда едем?</span>
+            <input id="destination" name="destination" value="Москва" list="destination-options" autocomplete="address-level2" />
+          </label>
+          <label class="field">
+            <span class="field-icon">▣</span><span class="field-label">Заезд</span>
+            <input id="check-in" name="checkIn" type="date" required />
+          </label>
+          <label class="field">
+            <span class="field-icon">▣</span><span class="field-label">Выезд</span>
+            <input id="check-out" name="checkOut" type="date" required />
+          </label>
+          <label class="field field-guests">
+            <span class="field-icon">♙</span><span class="field-label">Гости</span>
+            <select id="guests" name="guests"><option value="1">1 гость</option><option value="2" selected>2 гостя</option><option value="3">3 гостя</option><option value="4">4 гостя</option></select>
+          </label>
+          <button class="primary-button search-button" type="submit"><span>Найти номер</span><b>↗</b></button>
+        </form>
+        <datalist id="destination-options"></datalist>
+        <p class="search-hint" id="search-hint" aria-live="polite">Гибкие условия отмены доступны для большинства вариантов</p>
+        <div class="service-promises" aria-label="Преимущества бронирования"><span>✓ Без скрытых сборов</span><span>✓ Подтверждение сразу</span><span>✓ Поддержка 24/7</span></div>
+        <div class="search-suggestions" aria-label="Популярные направления"><span>Популярное:</span><button type="button" data-quick-location="Москва">Москва</button><button type="button" data-quick-location="Санкт-Петербург">Санкт-Петербург</button><button type="button" data-quick-location="Токио">Токио</button></div>
+      </section>
+
+      <section class="quick-facts shell reveal" aria-label="Преимущества сервиса">
+        <div class="fact"><strong>189</strong><span>отелей в каталоге</span></div>
+        <div class="fact"><strong>20</strong><span>стран для поездки</span></div>
+        <div class="fact"><strong>63</strong><span>города для путешествий</span></div>
+        <div class="fact"><strong>24/7</strong><span>поддержка в поездке</span></div>
+      </section>
+
+      <section class="stays-section shell" id="stays">
+        <div class="section-heading">
+          <div><p class="eyebrow"><span></span> Выбор гостей</p><h2>Отели, которые<br /><i>подойдут вам</i></h2></div>
+          <div class="result-meta"><span id="result-count" aria-live="polite">9 вариантов</span><button class="sort-button" type="button" data-sort-toggle>Сначала рекомендуемые <span>⌄</span></button></div>
+        </div>
+        <div class="filter-row" role="group" aria-label="Фильтры по категории">
+          <button class="filter-chip selected" data-filter="all" type="button">Все варианты</button>
+          <button class="filter-chip" data-filter="5" type="button">5 звёзд</button>
+          <button class="filter-chip" data-filter="4" type="button">4 звезды</button>
+          <button class="filter-chip" data-filter="city" type="button">В центре</button>
+          <button class="filter-chip" data-filter="quiet" type="button">Тихий район</button>
+        </div>
+        <div class="hotel-grid" id="hotel-grid"></div>
+        <div class="empty-state hidden" id="empty-state"><span>⌂</span><h3>Ничего не нашлось</h3><p>Попробуйте выбрать другую категорию или город.</p><button class="secondary-button" type="button" data-reset-search>Сбросить фильтры</button></div>
+      </section>
+
+      <section class="how-section shell reveal" id="how-it-works">
+        <div class="section-heading compact-heading"><div><p class="eyebrow"><span></span> Как это работает</p><h2>Поездка в<br /><i>три шага</i></h2></div><p class="section-lead">От первого поиска до ваучера — всё прозрачно и без звонков в отель.</p></div>
+        <div class="steps-grid">
+          <article class="step-card"><span class="step-index">01</span><span class="step-icon">⌖</span><h3>Выберите направление</h3><p>Укажите город, даты и число гостей — покажем варианты с актуальной ценой.</p></article>
+          <article class="step-card"><span class="step-index">02</span><span class="step-icon">▣</span><h3>Сравните условия</h3><p>Смотрите рейтинг, удобства, правила отмены и отзывы перед решением.</p></article>
+          <article class="step-card"><span class="step-index">03</span><span class="step-icon">✓</span><h3>Получите подтверждение</h3><p>После оплаты бронь появится в личном кабинете, а ваучер придёт на email.</p></article>
+        </div>
+      </section>
+
+      <section class="destinations-section shell reveal" id="destinations">
+        <div class="section-heading compact-heading"><div><p class="eyebrow"><span></span> Каталог направлений</p><h2>Куда поедем<br /><i>дальше?</i></h2></div><p class="section-lead">Все страны и города из базы доступны для поиска. Выберите направление, чтобы быстро подставить его в форму.</p></div>
+        <div class="destination-toolbar"><label class="destination-filter"><span>⌕</span><input id="location-filter" placeholder="Найти страну или город" /></label><span id="location-count" class="location-count"></span></div>
+        <div class="destination-grid" id="destination-grid"></div>
+      </section>
+
+      <section class="benefits-section shell reveal" id="benefits">
+        <div class="benefits-intro"><p class="eyebrow"><span></span> Забота о деталях</p><h2>Путешествуйте<br /><i>спокойнее</i></h2><p>Мы собрали всё нужное для уверенного бронирования в одном месте.</p></div>
+        <div class="benefit-list">
+          <article class="benefit"><span class="benefit-number">01</span><div><h3>Честная цена</h3><p>Сразу показываем итоговую стоимость без скрытых сборов и сюрпризов.</p></div><span class="benefit-arrow">↗</span></article>
+          <article class="benefit"><span class="benefit-number">02</span><div><h3>Ваши планы под контролем</h3><p>Изменяйте или отменяйте бронирование в личном кабинете до заезда.</p></div><span class="benefit-arrow">↗</span></article>
+          <article class="benefit"><span class="benefit-number">03</span><div><h3>Поддержка рядом</h3><p>Команда Aurora Stay на связи 24/7 — даже если поездка уже началась.</p></div><span class="benefit-arrow">↗</span></article>
+        </div>
+      </section>
+
+      <section class="faq-section shell reveal" id="faq">
+        <div><p class="eyebrow"><span></span> Частые вопросы</p><h2>Всё важное<br /><i>здесь</i></h2></div>
+        <div class="faq-list">
+          <details open><summary>Можно ли отменить бронирование?</summary><p>Да. Условия отмены указаны в карточке и на шаге подтверждения. Для большинства тарифов отмена бесплатна за 24 часа до заезда.</p></details>
+          <details><summary>Когда я получу ваучер?</summary><p>Сразу после успешной оплаты. Мы отправим ваучер на email, который вы укажете при оформлении, и сохраним его в разделе «Мои бронирования».</p></details>
+          <details><summary>Что входит в стоимость номера?</summary><p>В карточке отеля указана цена за ночь. Завтрак, парковка и дополнительные услуги отмечены отдельными тегами — итоговая сумма всегда показывается до оплаты.</p></details>
+          <details><summary>Как связаться с поддержкой?</summary><p>Напишите нам на help@aurorastay.demo. В рабочей версии здесь также появится онлайн-чат с командой поддержки.</p></details>
+        </div>
+      </section>
+
+      <section class="support-section shell reveal" id="support"><div><p class="eyebrow"><span></span> Остались вопросы?</p><h2>Мы рядом, когда<br /><i>это важно</i></h2></div><a class="support-link" href="mailto:help@aurorastay.demo">help@aurorastay.demo <span>↗</span></a></section>
+    </main>
+    <footer class="site-footer shell"><span>© 2026 Aurora Stay</span><span>Демо-версия веб-приложения</span><span class="footer-links"><button type="button" data-info="terms">Условия</button><button type="button" data-info="privacy">Конфиденциальность</button></span></footer>
+    <button class="back-to-top" id="back-to-top" type="button" aria-label="Вернуться наверх">↑</button>
+    <button class="support-fab" type="button" data-open-support aria-label="Получить помощь">?</button>
+
+    <div class="modal-backdrop hidden" id="modal-backdrop" data-close-modal>
+      <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" data-modal-content>
+        <button class="modal-close" type="button" data-close-modal aria-label="Закрыть">×</button>
+        <div id="modal-body"></div>
+      </section>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+    <script src="database-data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
